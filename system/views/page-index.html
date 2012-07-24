@@ -1,0 +1,169 @@
+<body id="frontpage">
+    {$error}
+<div id="overlay"></div>
+<div id="change-password-form" style="display: none;">
+<div id="change-password-form-container" class="clearfix">
+<div id="change-password-form-title" class="bottom-border">Forgot Password?</div>
+<div id="change-password-form-content" style="display: none;">
+<form method="post" action="#" id="forgotten-pw-form">
+<input type="hidden" name="page" value="/?changePwd=true" />
+<span>Type in your {$site_name} account email address:</span>
+<div id="email" class="center bottom-border">
+<input type="text" id="change-password-email-address" name="emailAddress" value="" class="email-address" maxlength="48"/>
+<div id="change-password-error-container" class="error" style="display: none;">Please enter a correct email address</div>
+</div>
+</form>
+<div class="change-password-buttons">
+<a href="#" id="change-password-cancel-link">Cancel</a>
+<a href="#" id="change-password-submit-button" class="new-button"><b>Send Email</b><i></i></a>
+</div>
+</div>
+<div id="change-password-email-sent-notice" style="display: none;">
+<div class="bottom-border">
+<span>Hey, we just sent you an email with a link that lets you reset your password.<br>
+<br />
+NOTE! Remember to check your "junk" folder too!</span>
+<div id="email-sent-container"></div>
+</div>
+<div class="change-password-buttons">
+<a href="#" id="change-password-change-link">Back</a>
+<a href="#" id="change-password-success-button" class="new-button"><b>OK</b><i></i></a>
+</div>
+</div>
+</div>
+<div id="change-password-form-container-bottom"></div>
+</div>
+<script type="text/javascript">
+HabboView.add( function() {
+ChangePassword.init();
+
+
+});
+</script>
+<div id="site-header">
+<form id="loginformitem" name="loginformitem" action="{$www}/index" method="post">
+<div style="clear: both;"></div>
+<div id="site-header-content">
+<div id="habbo-logo"></div>
+<div id="login-form">
+<div id="login-form-email">
+<label for="login-username"
+class="login-text">Email</label>
+<input tabindex="3" type="text" class="login-field" name="credentials.username" id="login-username"
+value="" maxlength="48"/>
+<input tabindex="6" type="checkbox" name="remember.me" id="login-remember-me"
+value="true"/>
+<label for="login-remember-me">Keep me logged in</label>
+<div id="landing-remember-me-notification" class="bottom-bubble" style="display:none;">
+<div class="bottom-bubble-t"><div></div></div>
+<div class="bottom-bubble-c">
+By selecting this you will stay logged in to {$site_name}, until you &quot;Log out&quot;.
+</div>
+<div class="bottom-bubble-b"><div></div></div>
+</div>
+</div>
+<div id="login-form-password">
+<label for="login-password" class="login-text">Password</label>
+<input tabindex="4" type="password" class="login-field" name="credentials.password"
+id="login-password" maxlength="32"/>
+<div id="login-forgot-password">
+<a href="#" id="forgot-password"><span>Forgot your password?</span></a>
+</div>
+</div>
+<div id="login-form-submit">
+<input type="submit" value="Login" class="login-top-button"
+id="login-submit-button"/>
+<a href="#" tabindex="5"
+id="login-submit-new-button"><span>Login</span></a>
+</div>
+    
+</div>
+<noscript>
+<div id="alert-javascript-container">
+<div id="alert-javascript-title">
+Missing JavaScript support
+</div>
+<div id="alert-javascript-text">
+Javascript is disabled on your browser. Please enable JavaScript or upgrade to a Javascript-capable browser to use Habbo :)
+</div>
+</div>
+</noscript>
+
+<div id="alert-cookies-container" style="display:none">
+<div id="alert-cookies-title">
+Missing cookie support
+</div>
+<div id="alert-cookies-text">
+Cookies are disabled on your browser. Please enable cookies to use Habbo.
+</div>
+</div>
+<script type="text/javascript">
+document.cookie = "habbotestcookie=supported";
+var cookiesEnabled = document.cookie.indexOf("habbotestcookie") != -1;
+if (cookiesEnabled) {
+var date = new Date();
+date.setTime(date.getTime()-24*60*60*1000);
+document.cookie="habbotestcookie=supported; expires="+date.toGMTString();
+} else {
+$('alert-cookies-container').show();
+}
+</script>
+
+<script type="text/javascript">
+HabboView.add(function() {
+LandingPage.init();
+if (!LandingPage.focusForced) {
+LandingPage.fieldFocus('login-username');
+}
+});
+</script>
+</div>
+</form>
+</div>
+<div id="fp-container">
+<div id="content">
+<div id="column1" class="column">
+<div class="habblet-container ">		
+<div style="width: 890px; margin: 0 auto">
+<div id="tagline">{$site_name}... {$site_desc}</div>
+</div>
+<div id="frontpage-image-container">
+<div id="join-now-button-container">
+<div id="join-now-button-wrapper">
+<div class="join-now-alternative">
+<a href="{$www}/quickregister/start" class="newusers" id="newusers"><b>New to {$site_name}?</b><span style="color: #8f8f8f;">Click here to</span></a>
+</div>
+<div class="join-now-button">
+<a class="join-now-link" id="register-link" href="{$www}/quickregister/start"> 
+<span class="join-now-text-big">Join now</span>
+<span class="join-now-text-small">for Free</span>
+</a>
+<span class="close"></span>
+</div>
+<div class="join-now-alternative">
+</div>
+</div>
+</div>
+<script type="text/javascript">
+function startRegistration(elem) {
+targetUrl = elem.href;
+if (typeof targetUrl == "undefined") {
+targetUrl = "{$www}/quickregister/start";
+}
+window.location.href = targetUrl;
+}
+</script>
+<div id="people-inside">
+<b><span><span class="stats-fig">{nocache}{$users_online}{/nocache}</span> player(s) online now</span></b>
+<i></i>
+</div>
+<a href="{$www}/quickregister/start" id="frontpage-image" style="background-image: url('//habbo.hs.llnwd.net/c_images/Frontpage_images/landing_generic_1203xx_1.png')" onclick="startRegistration(this); return false;"></a>
+</div>
+</div>
+<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+</div>
+<!--[if lt IE 7]>
+<script type="text/javascript">
+Pngfix.doPngImageFix();
+</script>
+<![endif]-->

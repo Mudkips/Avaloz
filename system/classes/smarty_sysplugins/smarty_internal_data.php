@@ -162,7 +162,7 @@ class Smarty_Internal_Data {
 
         return $this;
     }
-
+    
     /**
      * appends values to template variables by reference
      *

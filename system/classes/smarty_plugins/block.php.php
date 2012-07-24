@@ -6,7 +6,6 @@
  * @subpackage PluginsBlock 
  * @author Uwe Tews 
  */ 
-
 /** 
  * Smarty {php}{/php} block plugin 
  * 

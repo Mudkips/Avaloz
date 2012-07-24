@@ -84,11 +84,17 @@
                 return false;
         }
         
-        public function findUser($id, $column)
+        public function get($id, $column)
         {
             global $start;
-            $query = $start->mysqli->prepare("SELECT ? FROM users WHERE id=?")->bind_param($column, $id)->execute();
+            $query = $start->mysqli->prepare("SELECT " . $column . " FROM users WHERE id=?")->bind_param($id)->execute();
             return $query->result();
+        }
+        
+        public function updateLastLogin($user)
+        {
+            global $start;
+            return $start->mysqli->prepare("UPDATE users SET last_logged='" . time() . "' WHERE username=?")->bind_param($user)->execute();
         }
         
         public function validLogin($user, $pass)
@@ -101,6 +107,7 @@
             }
                 return false;
         }
+        
         
         
     }

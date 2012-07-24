@@ -56,8 +56,21 @@
             $this->smarty->assign('www', $this->config['website']['link']);
             $this->smarty->assign('site_name', $this->config['website']['name']);
             $this->smarty->assign('site_desc', $this->config['website']['desc']);
+            $this->smarty->assign('users_online', ($this->misc->server_status('users_online')));
             $this->smarty->assign('cms_rev', 'AvalozCMS revision 0.1.2');
+            $this->smarty->assign('queries', nMySQLI::$count);
             $this->smarty->assign('error', null);
+                
+            if(isset($_SESSION['LoggedIn']))
+            {
+                $this->smarty->assign('username', $this->users->get($_SESSION['LoggedIn'], 'username'));
+                $this->smarty->assign('credits', $this->users->get($_SESSION['LoggedIn'], 'credits'));
+                $this->smarty->assign('pixels', $this->users->get($_SESSION['LoggedIn'], 'activity_points'));
+                $this->smarty->assign('rank', $this->users->get($_SESSION['LoggedIn'], 'rank'));
+                $this->smarty->assign('motto', $this->users->get($_SESSION['LoggedIn'], 'motto'));
+                $this->smarty->assign('last_logged_in', $this->users->get($_SESSION['LoggedIn'], 'last_logged'));
+                $this->smarty->assign('figure', $this->users->get($_SESSION['LoggedIn'], 'look'));
+            }
         }
     }
 

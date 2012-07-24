@@ -5,8 +5,9 @@
         public function server_status($column)
         {
             global $start;
-            $query = $start->mysqli->prepare('SELECT ? FROM server_status')->bind_param($column)->execute();
-            return $query->result();
+            $query = $start->mysqli->prepare('SELECT '. $column .' FROM server_status')->execute();
+            $result = $query->result();
+            return $result;
         }
         
         // Should be triggered on every page xo;
@@ -24,6 +25,17 @@
         {
             global $start;
             htmlspecialchars($start->mysqli->real_escape_string($input));
+        }
+        
+        public function hash($input)
+        {
+            global $start;
+            return $start->config['hashing']['type']($input . $start->config['hashing']['salt']);
+        }
+        
+        public function redir($address)
+        {
+            header('Location: ' . $address);
         }
     }
 

@@ -30,14 +30,12 @@
  * @package Smarty
  * @version 3.1.8
  */
-
 /**
  * define shorthand directory separator constant
  */
 if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
 }
-
 /**
  * set SMARTY_DIR to absolute path to Smarty library files.
  * Sets SMARTY_DIR only if user application has not already defined it.
@@ -45,7 +43,6 @@ if (!defined('DS')) {
 if (!defined('SMARTY_DIR')) {
     define('SMARTY_DIR', dirname(__FILE__) . DS);
 }
-
 /**
  * set SMARTY_SYSPLUGINS_DIR to absolute path to Smarty internal plugins.
  * Sets SMARTY_SYSPLUGINS_DIR only if user application has not already defined it.

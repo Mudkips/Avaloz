@@ -1,3 +1,8 @@
 RewriteEngine on
 
-RewriteRule ^([^/]+)(|/)$ index.php?action=$1
+RewriteRule ^imager/([^/]+)(|/)$ imager.php?figure=$1
+RewriteRule ^imager(|/)$ imager.php
+
+RewriteRule ^index(|/)$ index.php
+RewriteRule ^me(|/)$ me.php
+RewriteRule ^logout(|/)$ logout.php

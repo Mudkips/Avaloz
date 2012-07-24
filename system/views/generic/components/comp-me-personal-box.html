@@ -1,0 +1,56 @@
+<div id="container">
+<div id="content" style="position: relative" class="clearfix">
+<div id="column1" class="column"> 
+<div class="habblet-container ">		
+{nocache}<div id="new-personal-info" style="background-image:url({$www}/system/views/web-gallery/images/personal_info/hotel_views/htlview_gb.png)"> {/nocache}
+<div id="badge-back">
+<ul class="badge-back">
+</div> 
+<div class="enter-hotel-btn">
+<div class="open enter-btn">
+<a href="{$www}/client" target="uberClientWnd" onclick="HabboClient.openOrFocus(this); return false;">Enter {$site_name}<i></i></a>
+<b></b>
+</div>
+</div>
+<div id="habbo-plate"> 
+<a href="#"> 
+<img alt="{$username}" src="{$www}/imager/{$figure}" /> 
+</a> 
+</div> 
+<div id="habbo-info"> 
+<div id="motto-container" class="clearfix">			
+<strong>{$username}:</strong> 
+<div>
+<span title="{$motto}">{$motto}</span><p style="display: none"><input type="text" maxlength="60" name="motto" value="k"/></p>			
+</div> 
+</div> 
+<div id="motto-links" style="display: none"><a href="#" id="motto-cancel">Cancel</a></div> 
+</div> 
+<ul id="link-bar" class="clearfix"> 		
+<li class="credits"> 
+<a href="{$www}/credits">{$credits}</a> Credits
+</li>		
+<li class="activitypoints"> 
+<a href="{$www}/pixels">{$lol}</a> Pixels
+</li> 	</ul>
+{/nocache}
+<div id="habbo-feed"> 
+<ul id="feed-items">  
+</ul> 
+</div> 
+<p class="last"></p> 
+</div> 
+<script type="text/javascript"> 
+HabboView.add(function() {
+L10N.put("personal_info.motto_editor.spamming", "Don\'t spam me, bro!");
+PersonalInfo.init("");
+});
+</script> 
+</div> 
+<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+<script type="text/javascript"> 
+    //HabboView.run();
+</script>
+</div>
+<div id="column2" class="column">
+   

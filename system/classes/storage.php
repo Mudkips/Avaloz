@@ -1,8 +1,8 @@
 <?php
 
-# Joopies MySQLi class #
-# Source https://github.com/Joopie1994/TazqonCMSOriginal/master/includes/class.mysqli.php #
-# 100% Credits to Joopie #
+        # Joopies MySQLi class #
+        # Source https://github.com/Joopie1994/TazqonCMSOriginal/master/includes/class.mysqli.php #
+        # 100% Credits to Joopie #
 	
 	//Defining the new edited stmt class
 	class new_stmt extends mysqli_stmt
